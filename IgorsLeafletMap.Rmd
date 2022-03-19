@@ -1,0 +1,27 @@
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(dplyr)
+library(magrittr)
+library(knitr)
+library(leaflet)
+```
+
+
+## 19 March 2022
+Igor Gamayun, Coursera Assignment week 2
+``` {r,comment=""}
+
+UKSlogo <-makeIcon(iconUrl="https://www.uniklinikum-saarland.de/fileadmin/Templates/GFX/Header/logo_uks.gif", iconWidth = 90.5, iconHeight = 26)
+UKSpopup<-'<a href="https://www.uniklinikum-saarland.de/en"> hi all, I corrently work here </a>'
+df=data.frame(lat=49.30718687034572, lng=7.344853104210793)
+df %>% 
+  leaflet() %>%
+  addTiles()  %>% 
+  addMarkers(icon=UKSlogo,, popup=UKSpopup) %>%
+  addCircles( radius= 30, weight=1)
+
+```
+
